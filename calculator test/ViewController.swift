@@ -6,14 +6,14 @@
 //  Copyright © 2016 Edouard Long. All rights reserved.
 //
 
-// TODO fix operator buttons 
+// TODO fix operator buttons
 
 import UIKit
 
 class ViewController: UIViewController {
     
     // declare a string that the numbers will be stored in
-    var theNumber: String = ""
+    var theNumber: String = " "
     
     // Function that is called when any of the buttons are pressed (will be using tags to identify which button it was 0-9 Numbers, 10 DEL, 11 =, 12 +, 13 -, 14 x, 15 /, 16 Clear Screen)
     @IBAction func buttonPressed(sender: AnyObject) {
@@ -39,9 +39,14 @@ class ViewController: UIViewController {
         }
         // check if plus key was pressed
         else if sender.tag == 12{
-            // add the plus operator to the display and update it
-            theNumber += String(" + ")
-            mainDisplay.text = theNumber
+            // check if an operator has alreadly been used by checking if the last value in the string is a space
+            if theNumber[theNumber.endIndex.predecessor()] == " "{
+            }
+            else{
+                // add the plus operator to the display and update it
+                theNumber += String(" + ")
+                mainDisplay.text = theNumber
+            }
         }
     }
     
