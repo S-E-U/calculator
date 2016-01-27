@@ -44,7 +44,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="Rif-j8-1pT"/>
                                 </constraints>
-                                <state key="normal" title="7"/>
+                                <state key="normal" title="7">
+                                    <color key="titleShadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Vg-WA-CLe"/>
                                 </connections>
@@ -137,6 +139,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFd-UA-csT">
                                 <rect key="frame" x="196" y="107" width="208" height="21"/>
+                                <color key="backgroundColor" red="0.91219572835366014" green="0.9292732007575758" blue="0.92222393827039406" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="REI-Hi-P8q"/>
                                 </constraints>
@@ -162,7 +165,7 @@
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6oc-K0-yJt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uS-0W-5n3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uS-0W-5n3">
                                 <rect key="frame" x="196" y="78" width="208" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="22p-yO-Zxh"/>
