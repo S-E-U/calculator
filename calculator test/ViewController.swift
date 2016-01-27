@@ -6,6 +6,8 @@
 //  Copyright © 2016 Edouard Long. All rights reserved.
 //
 
+// TODO fix operator buttons 
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -13,10 +15,8 @@ class ViewController: UIViewController {
     // declare a string that the numbers will be stored in
     var theNumber: String = ""
     
-    // Function that is called when any of the buttons are pressed (will be using tags to identify which button it was)
+    // Function that is called when any of the buttons are pressed (will be using tags to identify which button it was 0-9 Numbers, 10 DEL, 11 =, 12 +, 13 -, 14 x, 15 /, 16 Clear Screen)
     @IBAction func buttonPressed(sender: AnyObject) {
-        // for testing just print the button tag
-        print(sender.tag)
         // check if a number was pressed
         if sender.tag == 0 || sender.tag == 1 || sender.tag == 2 || sender.tag == 3 || sender.tag == 4 || sender.tag == 5 || sender.tag == 6 || sender.tag == 7 || sender.tag == 8 || sender.tag == 9{
             // put the number into the string and push it to the display
@@ -35,6 +35,12 @@ class ViewController: UIViewController {
             let index = theNumber.startIndex.advancedBy(theNumber.characters.count - 1)
             // remove the last digit from the calculator
             theNumber = theNumber.substringToIndex(index)
+            mainDisplay.text = theNumber
+        }
+        // check if plus key was pressed
+        else if sender.tag == 12{
+            // add the plus operator to the display and update it
+            theNumber += String(" + ")
             mainDisplay.text = theNumber
         }
     }
