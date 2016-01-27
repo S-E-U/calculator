@@ -6,7 +6,6 @@
 //  Copyright © 2016 Edouard Long. All rights reserved.
 //
 
-// TODO fix operator buttons and link up second display 
 
 import UIKit
 
@@ -27,62 +26,91 @@ class ViewController: UIViewController {
     // declare a string that stores the current number
     var currentNumber: String = ""
     
-    // Function that is called when any of the buttons are pressed (will be using tags to identify which button it was 0-9 Numbers, 10 DEL, 11 =, 12 +, 13 -, 14 x, 15 /, 16 Clear Screen)
+    // declare a bool so that we can check if the equals button was the last button pressed
+    var equalsPressed: Bool = false
+    
+    // Function that is called when any of the buttons are pressed (will be using tags to identify which button it was 0-9 Numbers, 10 decimal, 11 =, 12 +, 13 -, 14 x, 15 /, 16 Clear Screen)
     @IBAction func buttonPressed(sender: AnyObject) {
+        // check if equals was pressed
+        if equalsPressed == true{
+            // reset equalsPressed
+            equalsPressed = false
+            
+            //clear the screen
+            mainDisplay.text = ""
+            }
+        else{
+        }
+        
         // check if a number was pressed
-        if sender.tag == 0 || sender.tag == 1 || sender.tag == 2 || sender.tag == 3 || sender.tag == 4 || sender.tag == 5 || sender.tag == 6 || sender.tag == 7 || sender.tag == 8 || sender.tag == 9{
-            // put the number into the string and push it to the display
-            theNumber += String(sender.tag)
-            mainDisplay.text = theNumber
-            
-            // put the number into the currentNumber string
-            currentNumber += String(sender.tag)
-            
-            // check if an operation was queued
-            if currentOperator != 5{
-                
-                // check if it is addition
-                if currentOperator == 0{
-                    // perform the operation
-                    total = String(Int(currentNumber)! + Int(oldTotal)!)
-                    
-                    //update the mini display
-                    secondDisplay.text = total
-                    
+        if sender.tag == 0 || sender.tag == 1 || sender.tag == 2 || sender.tag == 3 || sender.tag == 4 || sender.tag == 5 || sender.tag == 6 || sender.tag == 7 || sender.tag == 8 || sender.tag == 9 || sender.tag == 10{
+            // make sure that there wasn't another decimal
+            if sender.tag == 10 && (theNumber[theNumber.endIndex.predecessor()] == "." || theNumber == " "){
+            }
+            else{
+                // put the number into the string and push it to the display (check it's not a decimal)
+                if sender.tag == 10{
+                    theNumber += "."
+                }
+                else{
+                    theNumber += String(sender.tag)
                 }
                 
-                // check if its subtraction
-                if currentOperator == 1{
-                    // perform the operation 
-                    total = String(Int(oldTotal)! - Int(currentNumber)!)
-                    
-                    //update the mini display
-                    secondDisplay.text = total
-                }
+                mainDisplay.text = theNumber
                 
-                // check if its multiplication
-                if currentOperator == 2{
-                    // perform the operation
-                    total = String(Int(oldTotal)! * Int(currentNumber)!)
-                    
-                    //update the mini display
-                    secondDisplay.text = total
+                // put the number into the currentNumber string (check if it's a decimal)
+                if sender.tag == 10{
+                    currentNumber += "."
                 }
-                
-                // check if its division
-                if currentOperator == 3{
-                    // perform the operation
-                    total = String(Int(oldTotal)! / Int(currentNumber)!)
+                else{
+                    currentNumber += String(sender.tag)
+                }
+                // check if an operation was queued
+                if currentOperator != 5{
                     
-                    //update the mini display
-                    secondDisplay.text = total
+                    // check if it is addition
+                    if currentOperator == 0{
+                        // perform the operation
+                        total = String(Double(currentNumber)! + Double(oldTotal)!)
+                        
+                        //update the mini display
+                        secondDisplay.text = total
+                        
+                    }
+                    
+                    // check if its subtraction
+                    if currentOperator == 1{
+                        // perform the operation
+                        total = String(Double(oldTotal)! - Double(currentNumber)!)
+                        
+                        //update the mini display
+                        secondDisplay.text = total
+                    }
+                    
+                    // check if its multiplication
+                    if currentOperator == 2{
+                        // perform the operation
+                        total = String(Double(oldTotal)! * Double(currentNumber)!)
+                        
+                        //update the mini display
+                        secondDisplay.text = total
+                    }
+                    
+                    // check if its division
+                    if currentOperator == 3{
+                        // perform the operation
+                        total = String(Double(oldTotal)! / Double(currentNumber)!)
+                        
+                        //update the mini display
+                        secondDisplay.text = total
+                    }
                 }
             }
         }
         // check if clear screen was pressed
         else if sender.tag == 16{
             // wipe the number and update it
-            theNumber = ""
+            theNumber = " "
             mainDisplay.text = theNumber
             
             // wipe the second screen and the set the current operator to zero and reset old total and total
@@ -92,14 +120,7 @@ class ViewController: UIViewController {
             total = ""
             currentNumber = ""
         }
-        // check if the del key was pressed
-        else if sender.tag == 10{
-            // get the index of the last character of the string
-            let index = theNumber.startIndex.advancedBy(theNumber.characters.count - 1)
-            // remove the last digit from the calculator
-            theNumber = theNumber.substringToIndex(index)
-            mainDisplay.text = theNumber
-        }
+   
         // check if plus key was pressed
         else if sender.tag == 12{
             // check if an operator has alreadly been used by checking if the last value in the string is a space
@@ -205,7 +226,24 @@ class ViewController: UIViewController {
             }
         }
     
-        
+        // check if equals was pressed
+        if sender.tag == 11{
+            // clear the mini display
+            secondDisplay.text = ""
+            
+            // put the solution into the main screen
+            mainDisplay.text = total
+            
+            // reset the values
+            currentOperator = 5
+            oldTotal = "0"
+            total = ""
+            currentNumber = ""
+            theNumber = " "
+            
+            // tell the calculator to clear the screen as soon as the user types a number
+            equalsPressed = true
+        }
         
         
     }
