@@ -171,6 +171,15 @@
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6oc-K0-yJt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uS-0W-5n3">
+                                <rect key="frame" x="196" y="78" width="208" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="22p-yO-Zxh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                <color key="textColor" white="0.75606496710526316" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -189,6 +198,7 @@
                             <constraint firstItem="wa6-hy-aHg" firstAttribute="baseline" secondItem="P6V-ZE-A2f" secondAttribute="baseline" id="D43-CW-3ie"/>
                             <constraint firstItem="fgn-Ji-oOt" firstAttribute="baseline" secondItem="dk3-42-zli" secondAttribute="baseline" id="E6x-gc-DFo"/>
                             <constraint firstItem="AOp-gV-Ant" firstAttribute="top" secondItem="OSe-r3-8y4" secondAttribute="bottom" constant="11" id="EpL-ru-B3z"/>
+                            <constraint firstItem="aFd-UA-csT" firstAttribute="top" secondItem="7uS-0W-5n3" secondAttribute="bottom" constant="8" symbolic="YES" id="FKG-FO-Rii"/>
                             <constraint firstItem="3ob-ML-LDY" firstAttribute="trailing" secondItem="F0M-QB-8XP" secondAttribute="trailing" id="G9X-9i-DqQ"/>
                             <constraint firstItem="u5d-zI-8LG" firstAttribute="leading" secondItem="3HR-RA-C2y" secondAttribute="trailing" constant="8" symbolic="YES" id="HGo-fr-yB0"/>
                             <constraint firstItem="aFd-UA-csT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jcj-6f-NVa"/>
@@ -208,7 +218,9 @@
                             <constraint firstItem="Md4-Sa-v0l" firstAttribute="leading" secondItem="iBz-AE-RdE" secondAttribute="trailing" constant="8" symbolic="YES" id="cJs-eo-cba"/>
                             <constraint firstItem="GYf-VK-Klt" firstAttribute="leading" secondItem="F0M-QB-8XP" secondAttribute="leading" id="da7-zJ-w42"/>
                             <constraint firstItem="AOp-gV-Ant" firstAttribute="leading" secondItem="fgn-Ji-oOt" secondAttribute="trailing" constant="8" symbolic="YES" id="fZK-T3-3ZR"/>
+                            <constraint firstItem="7uS-0W-5n3" firstAttribute="leading" secondItem="aFd-UA-csT" secondAttribute="leading" id="hr8-pa-a4M"/>
                             <constraint firstItem="3ob-ML-LDY" firstAttribute="leading" secondItem="dk3-42-zli" secondAttribute="leading" id="in7-ep-LiG"/>
+                            <constraint firstItem="7uS-0W-5n3" firstAttribute="trailing" secondItem="aFd-UA-csT" secondAttribute="trailing" id="jEh-GC-dgL"/>
                             <constraint firstItem="iBz-AE-RdE" firstAttribute="leading" secondItem="3HR-RA-C2y" secondAttribute="leading" id="lGB-Yd-AZG"/>
                             <constraint firstItem="aFd-UA-csT" firstAttribute="trailing" secondItem="Md4-Sa-v0l" secondAttribute="trailing" id="mbr-4u-bkp"/>
                             <constraint firstItem="AOp-gV-Ant" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mbz-6Z-cx0"/>
@@ -228,6 +240,7 @@
                     </view>
                     <connections>
                         <outlet property="mainDisplay" destination="aFd-UA-csT" id="lBD-rX-7Mw"/>
+                        <outlet property="secondDisplay" destination="7uS-0W-5n3" id="08K-WH-4fx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
